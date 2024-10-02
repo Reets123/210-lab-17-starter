@@ -1,3 +1,6 @@
+// Lab 17: Modularize the Linked List Code
+// COMSC-210 - Ibrahim Alatig 
+
 #include <iostream>
 using namespace std;
 
