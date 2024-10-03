@@ -13,53 +13,34 @@ struct Node {
 
 // function prototypes
 void output(Node *);
-void addNodeToFront(Node *&, float);
-void addNodeToTail(Node *&, float);
-void deleteNode(Node *&, int);
-void insertNode(Node *&, int, float);
-void deleteLinkedList(Node *&);
+Node* addNodeToFront(Node *, float);
+Node* addNodeToTail(Node *, float);
+Node* deleteNode(Node *, int);
+Node* insertNode(Node *, int, float);
+void deleteList(Node *&);
 
 
 int main() {
     Node *head = nullptr;
     
-
     // create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
         int tmp_val = rand() % 100;
-        addNodeToFront(head, tmp_val);
-        
+        head = addNodeToFront(head, tmp_val);   
     }
     output(head);
 
     // deleting a node
-    Node * current = head;
+    int entry;
     cout << "Which node to delete? " << endl;
     output(head);
-    int entry;
     cout << "Choice --> ";
     cin >> entry;
 
-    // traverse that many times and delete that node
-    current = head;
-    Node *prev = head;
-    for (int i = 0; i < (entry-1); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    // at this point, delete current and reroute pointers
-    if (current) {  // checks for current to be valid before deleting the node
-        prev->next = current->next;
-        delete current;
-        current = nullptr;
-    }
+    head = deleteNode(head, entry);
     output(head);
 
     // insert a node
-    current = head;
     cout << "After which node to insert 10000? " << endl;
     count = 1;
     while (current) {
