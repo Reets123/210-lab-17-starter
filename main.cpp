@@ -87,4 +87,16 @@ Node* addNodeToTail(Node *head, float value) {
 
     Node *current = head;
     while (current->next) {
+        current = current->next;
+    }
+    current->next = newNode;
+    return head;
+}
+
+Node* deleteNode(Node *head, int position) {
+    if (!head || position < 1) return head;  // Invalid position
+
+    Node *current = head;
+    if (position == 1) {  // Deleting the head
+        head = current->
 
