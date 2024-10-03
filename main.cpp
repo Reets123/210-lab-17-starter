@@ -42,13 +42,15 @@ int main() {
 
     // insert a node
     cout << "After which node to insert 10000? " << endl;
-    count = 1;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
+    output(head);
     cout << "Choice --> ";
     cin >> entry;
+
+    head = insertNode(head, entry, 10000);
+    output(head);
+
+     deleteList(head);
+    output(head);
 
     current = head;
     prev = head;
