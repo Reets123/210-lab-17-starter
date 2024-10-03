@@ -145,5 +145,13 @@ Node* insertNode(Node *head, int position, float value) {
     return head;
 }
 
-void delete
+void deleteList(Node *&head) {
+    Node *current = head;
+    while (current) {
+        Node *temp = current;
+        current = current->next;
+        delete temp;
+    }
+    head = nullptr;
+}
 
