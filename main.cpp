@@ -117,5 +117,20 @@ Node* deleteNode(Node *head, int position) {
     return head;
 }
 
-Node* insertNode(No
+Node* insertNode(Node *head, int position, float value) {
+    if (position < 1) return head;
+
+    if (position == 1) {  // Insert at the front
+        return addNodeToFront(head, value);
+    }
+
+    Node *newNode = new Node;
+    newNode->value = value;
+    newNode->next = nullptr;
+
+    Node *current = head;
+    Node *prev = nullptr;
+    
+    for (int i = 1; current != nullptr && i < position; i++) {
+        prev = current;
 
