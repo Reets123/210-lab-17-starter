@@ -49,33 +49,7 @@ int main() {
     head = insertNode(head, entry, 10000);
     output(head);
 
-     deleteList(head);
-    output(head);
-
-    current = head;
-    prev = head;
-    for (int i = 0; i < (entry); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    //at this point, insert a node between prev and current
-    Node * newnode = new Node;
-    newnode->value = 10000;
-    newnode->next = current;
-    prev->next = newnode;
-    output(head);
-
-    // deleting the linked list
-    current = head;
-    while (current) {
-        head = current->next;
-        delete current;
-        current = head;
-    }
-    head = nullptr;
+    deleteList(head);
     output(head);
 
     return 0;
@@ -94,3 +68,23 @@ void output(Node * hd) {
     }
     cout << endl;
 }
+
+Node* addNodeToFront(Node *head, float value) {
+    Node *newNode = new Node;
+    newNode->value = value;
+    newNode->next = head;
+    return newNode;
+}
+
+Node* addNodeToTail(Node *head, float value) {
+    Node *newNode = new Node;
+    newNode->value = value;
+    newNode->next = nullptr;
+
+    if (!head) {
+        return newNode;
+    }
+
+    Node *current = head;
+    while (current->next) {
+
