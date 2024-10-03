@@ -98,5 +98,24 @@ Node* deleteNode(Node *head, int position) {
 
     Node *current = head;
     if (position == 1) {  // Deleting the head
-        head = current->
+        head = current->next;
+        delete current;
+        return head;
+    }
+
+    Node *prev = nullptr;
+    for (int i = 1; current != nullptr && i < position; i++) {
+        prev = current;
+        current = current->next;
+    }
+    
+    if (current) { // Node to be deleted found
+        prev->next = current->next;
+        delete current;
+    }
+    
+    return head;
+}
+
+Node* insertNode(No
 
