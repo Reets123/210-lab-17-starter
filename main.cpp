@@ -16,10 +16,13 @@ void output(Node *);
 void addNodeToFront(Node *&, float);
 void addNodeToTail(Node *&, float);
 void deleteNode(Node *&, int);
+void insertNode(Node *&, int, float);
+void deleteLinkedList(Node *&);
+
 
 int main() {
     Node *head = nullptr;
-    int count = 0;
+    
 
     // create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
