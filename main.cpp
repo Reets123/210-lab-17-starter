@@ -133,4 +133,17 @@ Node* insertNode(Node *head, int position, float value) {
     
     for (int i = 1; current != nullptr && i < position; i++) {
         prev = current;
+        current = current->next;
+    }
+
+    // Insert new node between prev and current
+    if (prev) {
+        newNode->next = current;
+        prev->next = newNode;
+    }
+    
+    return head;
+}
+
+void delete
 
